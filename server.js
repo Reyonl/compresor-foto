@@ -40,12 +40,13 @@ app.post('/compress', upload.single('image'), async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on https://compresfoto.tplp4.com:${PORT}`);
+app.get('/', (req, res) => {
+  res.send('Welcome to the Photo Compression API!');
 });
 
-app.get('/', (req, res) => {
-    res.send('Welcome to the Photo Compression API!');
-  });
-  
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
